@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using static Enemy;
 
 [RequireComponent(typeof(LineRenderer))]
 public class KochLineAlive : KochGenerator
@@ -15,8 +17,13 @@ public class KochLineAlive : KochGenerator
     public Material _material;
     public Color _color;
     private Material _matInstance;
-    [Range(1, 2)]
+    [Range(2, 4)]
     public float _emissionMultiplier;
+
+    //For Enemy
+    Enemy enemy;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +39,15 @@ public class KochLineAlive : KochGenerator
         //apply material
         _matInstance = new Material(_material);
         _lineRenderer.material = _matInstance;
+
+        if(transform.parent != null && transform.parent.parent != null && transform.parent.parent.parent != null)
+        {
+            enemy = transform.parent.parent.parent.GetComponent<Enemy>();
+            if(enemy != null )
+            {
+                enemy.RefreshEvent += HandleRefreshEvent;
+            }
+        }
 
     }
 
@@ -88,6 +104,17 @@ public class KochLineAlive : KochGenerator
         //    _lerpAmount = 0;
         //}
 
+    }
+
+    //Events
+    public void HandleRefreshEvent(object sender, KochRefreshEventArgs a)
+    {
+        Debug.Log("here");
+        _lerpAmount = a.lerpAmount;
+        _generateMultiplier = a.generateMultiplier;
+        _material = a.material;
+        _color = a.color;
+        _emissionMultiplier = a.emissionMultiplier;
     }
 
 }

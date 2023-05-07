@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5562132030437509173}
   - component: {fileID: 2096922656}
-  - component: {fileID: 2337356271797540712}
   - component: {fileID: 3773801334397794482}
+  - component: {fileID: 3412744407439547789}
   m_Layer: 7
   m_Name: Projectile
   m_TagString: Projectile
@@ -54,22 +54,6 @@ MonoBehaviour:
   lineWidth: 0.09
   radius: 0.2
   segments: 360
---- !u!70 &2337356271797540712
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398620586764653524}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!120 &3773801334397794482
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -538,3 +522,16 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 1
+--- !u!135 &3412744407439547789
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398620586764653524}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.21
+  m_Center: {x: 0, y: 0, z: 0}

@@ -63,6 +63,27 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var tag = other.gameObject.tag;
+
+        switch (tag)
+        {
+            case "Player":
+                break;
+            case "Enemy":
+                IEnemy enemy = other.gameObject.GetComponent<Enemy>();
+                enemy.OnProjectileColision();
+                break;
+
+        }
+    }
+
     private void DrawCircle()
     {
         lineRenderer.useWorldSpace = false;

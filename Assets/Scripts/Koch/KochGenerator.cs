@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KochGenerator : MonoBehaviour
 {
-    public bool _refresh;
     protected enum _axis
     {
         XAxis,
@@ -275,14 +274,7 @@ public class KochGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("avant if");
-        if (_refresh)
-        {
-            Debug.Log(" if");
-
-            Awake();
-            _refresh = false;
-        }
+        
 
     }
 }
